@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>IT – Caça ao Palhaço</title>
+  <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Oswald:wght@400;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="it.css"/>
+</head>
+<body>
+
+<div id="cursor"></div>
+
+<div id="screen">
+  <header>
+    <h1>IT</h1>
+    <p class="subtitle">Caça ao Palhaço • Derry, Maine</p>
+  </header>
+
+  <div id="hud">
+    <div class="hud-item">
+      <span class="hud-label">PONTOS</span>
+      <span class="hud-value" id="score-value">0</span>
+    </div>
+    <div class="hud-item">
+      <span class="hud-label">ACERTOS</span>
+      <span class="hud-value" id="hits-value">0</span>
+    </div>
+    <div class="hud-item">
+      <span class="hud-label">TEMPO</span>
+      <span class="hud-value" id="timer-value">20</span>
+    </div>
+    <div class="hud-item">
+      <span class="hud-label">COMBO</span>
+      <span class="hud-value" id="combo-value">x1</span>
+    </div>
+  </div>
+
+  <div id="arena">
+    <div class="pipe pipe-left"></div>
+    <div class="pipe pipe-right"></div>
+    <div class="pipe pipe-mid"></div>
+    <div id="overlay">
+      <div class="overlay-title" id="overlay-title"> ELES FLUTUAM </div>
+      <div class="overlay-body" id="overlay-body">
+        Penny está escondido nos esgotos de Derry.<br>
+        Clique nele antes que desapareça nas sombras.<br>
+        Cada acerto soma pontos — combos multiplicam!
+      </div>
+      <div class="overlay-score" id="overlay-score" style="display:none"></div>
+      <button id="btn-start">INICIAR</button>
+    </div>
+  </div>
+
+  <p class="footer-note">🎈 &nbsp; ELES TODOS FLUTUAM AQUI EMBAIXO &nbsp; 🎈</p>
+</div>
+
+<script src="it.js"></script>
+</body>
+</html>

@@ -1,0 +1,112 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Pokédex</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- HEADER -->
+
+  <header class="banner">
+
+    <div class="banner-logo">Pokédex</div>
+
+    <div class="banner-sub">
+      Capture todos eles
+    </div>
+
+    <div class="pokebola-container">
+
+      <svg class="pokeball-deco" viewBox="0 0 120 120">
+        <circle cx="60" cy="60" r="58" fill="white" stroke="rgba(0,0,0,0.2)" stroke-width="3"/>
+        <path d="M2 60 Q60 60 118 60" stroke="#222" stroke-width="5" fill="none"/>
+        <path d="M2 60 A58 58 0 0 1 118 60" fill="#FF3B3B"/>
+        <circle cx="60" cy="60" r="18" fill="white" stroke="#222" stroke-width="4"/>
+        <circle cx="60" cy="60" r="9" fill="white" stroke="#222" stroke-width="3"/>
+      </svg>
+
+    </div>
+
+  </header>
+
+  <!-- CONTROLES -->
+
+  <div class="controls">
+
+    <div class="search-wrap">
+
+      <input
+        class="search-input"
+        id="searchInput"
+        type="text"
+        placeholder="Digite nome ou número do Pokémon"
+      >
+
+      <button class="btn" onclick="buscar()">
+        Buscar
+      </button>
+
+      <button class="btn btn-reset" onclick="resetar()">
+        ↺
+      </button>
+
+    </div>
+
+    <select class="type-select" id="typeSelect" onchange="filtrarTipo()">
+      <option value="">Todos os tipos</option>
+      <option value="fire">Fogo</option>
+      <option value="water">Água</option>
+      <option value="grass">Planta</option>
+      <option value="electric">Elétrico</option>
+      <option value="ice">Gelo</option>
+      <option value="fighting">Lutador</option>
+      <option value="poison">Veneno</option>
+      <option value="ground">Terra</option>
+      <option value="flying">Voador</option>
+      <option value="psychic">Psíquico</option>
+      <option value="bug">Inseto</option>
+      <option value="rock">Pedra</option>
+      <option value="ghost">Fantasma</option>
+      <option value="dragon">Dragão</option>
+      <option value="dark">Sombrio</option>
+      <option value="steel">Metal</option>
+      <option value="fairy">Fada</option>
+      <option value="normal">Normal</option>
+    </select>
+
+  </div>
+
+  <!-- GRID -->
+
+  <div class="container">
+
+    <div class="count-label" id="countLabel"></div>
+
+    <div class="grid" id="grid"></div>
+
+  </div>
+
+  <!-- MODAL -->
+
+  <div class="modal-backdrop" id="modal" style="display:none" onclick="fecharModal(event)">
+
+    <div class="modal" id="modalContent"></div>
+
+  </div>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
+
+

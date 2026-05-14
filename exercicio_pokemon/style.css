@@ -1,0 +1,462 @@
+:root {
+  --red: #ff3b3b;
+  --dark-red: #cc0000;
+  --yellow: #ffd700;
+  --card-bg: #16213e;
+  --text: #f0f0f0;
+  --radius: 18px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background:
+    radial-gradient(circle at top left, #1f2937 0%, transparent 30%),
+    radial-gradient(circle at bottom right, #7f1d1d 0%, transparent 25%),
+    #0f172a;
+
+  color: white;
+
+  font-family: 'Nunito', sans-serif;
+
+  min-height: 100vh;
+
+  overflow-x: hidden;
+
+  cursor: url('https://cur.cursors-4u.net/games/gam-14/gam1333.cur'), auto;
+}
+
+button,
+.card,
+.flip-card,
+select {
+  cursor: pointer;
+}
+
+/* HEADER */
+
+.banner {
+  background: linear-gradient(135deg, #cc0000 0%, #ff3b3b 40%, #ff6b35 100%);
+
+  padding: 40px 20px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  position: relative;
+
+  overflow: hidden;
+}
+
+.banner-logo {
+  font-family: 'Press Start 2P', monospace;
+
+  font-size: clamp(1.4rem, 5vw, 2.8rem);
+
+  color: #ffd700;
+
+  text-shadow: 4px 4px 0 #cc7700;
+}
+
+.banner-sub {
+  margin-top: 15px;
+
+  color: rgba(255,255,255,0.85);
+
+  font-weight: 800;
+
+  letter-spacing: 2px;
+}
+
+.pokeball-deco {
+  width: 130px;
+  height: 130px;
+}
+
+.pokebola-container {
+  margin-top: 20px;
+
+  animation:
+    flutuar 3s ease-in-out infinite,
+    girar 10s linear infinite;
+}
+
+@keyframes flutuar {
+
+  0%,100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+@keyframes girar {
+
+  from {
+    rotate: 0deg;
+  }
+
+  to {
+    rotate: 360deg;
+  }
+}
+
+/* CONTROLES */
+
+.controls {
+  padding: 25px;
+
+  display: flex;
+
+  justify-content: center;
+
+  gap: 15px;
+
+  flex-wrap: wrap;
+
+  position: sticky;
+
+  top: 0;
+
+  z-index: 100;
+
+  backdrop-filter: blur(20px);
+
+  background: rgba(15, 23, 42, 0.8);
+
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.search-wrap {
+  display: flex;
+
+  gap: 10px;
+
+  width: min(100%, 500px);
+}
+
+.search-input,
+.type-select {
+  background: rgba(66, 30, 30, 0.08);
+
+  border: 1px solid rgba(255,255,255,0.08);
+
+  color: rgb(0, 0, 0);
+
+  padding: 12px 20px;
+
+  border-radius: 999px;
+
+  outline: none;
+
+  font-weight: 700;
+}
+
+.search-input {
+  flex: 1;
+}
+
+.btn {
+  background: linear-gradient(135deg, #ff3b3b, #ff6b35);
+
+  border: none;
+
+  border-radius: 999px;
+
+  padding: 12px 26px;
+
+  color: white;
+
+  font-weight: 900;
+
+  letter-spacing: 1px;
+
+  transition: all 0.3s ease;
+
+  box-shadow:
+    0 10px 25px rgba(255,59,59,0.35),
+    inset 0 1px 0 rgba(255,255,255,0.2);
+}
+
+.btn:hover {
+  transform: translateY(-3px) scale(1.03);
+
+  box-shadow:
+    0 16px 35px rgba(255,59,59,0.5);
+}
+
+.btn-reset {
+  background: rgba(255,255,255,0.08);
+
+  box-shadow: none;
+}
+
+/* GRID */
+
+.container {
+  max-width: 1500px;
+
+  margin: auto;
+
+  padding: 40px 20px;
+}
+
+.count-label {
+  text-align: center;
+
+  margin-bottom: 25px;
+
+  color: rgba(255,255,255,0.7);
+
+  font-weight: 800;
+}
+
+.grid {
+  display: grid;
+
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+
+  gap: 24px;
+}
+
+/* CARD 3D */
+
+.flip-card {
+  perspective: 1000px;
+
+  height: 320px;
+}
+
+.flip-card-inner {
+  position: relative;
+
+  width: 100%;
+
+  height: 100%;
+
+  transition: transform 0.8s;
+
+  transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+
+  width: 100%;
+
+  height: 100%;
+
+  backface-visibility: hidden;
+
+  border-radius: 20px;
+}
+
+.flip-card-front {
+  background: rgba(22, 33, 62, 0.9);
+
+  border: 1px solid rgba(255,255,255,0.08);
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 14px;
+
+  padding: 20px;
+
+  box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+
+  transition: 0.3s;
+}
+
+.flip-card-front:hover {
+  transform: translateY(-5px);
+}
+
+.flip-card-back {
+  background: linear-gradient(135deg, #111827, #1e293b);
+
+  transform: rotateY(180deg);
+
+  border: 1px solid rgba(255,255,255,0.08);
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  align-items: center;
+
+  gap: 16px;
+
+  padding: 20px;
+
+  text-align: center;
+}
+
+.card-id {
+  align-self: flex-end;
+
+  color: rgba(255,255,255,0.6);
+
+  font-size: 0.8rem;
+}
+
+.card-img {
+  width: 120px;
+
+  height: 120px;
+
+  object-fit: contain;
+
+  filter: drop-shadow(0 10px 20px rgba(0,0,0,0.5));
+
+  transition: 0.3s;
+}
+
+.flip-card:hover .card-img {
+  transform: scale(1.1) translateY(-5px);
+}
+
+.card-name {
+  font-size: 1.1rem;
+
+  font-weight: 900;
+
+  text-transform: capitalize;
+}
+
+.types {
+  display: flex;
+
+  gap: 8px;
+
+  flex-wrap: wrap;
+
+  justify-content: center;
+}
+
+.type-badge {
+  padding: 6px 12px;
+
+  border-radius: 999px;
+
+  font-size: 0.75rem;
+
+  font-weight: 900;
+
+  color: white;
+}
+
+.back-info {
+  color: rgba(255,255,255,0.9);
+
+  line-height: 1.5;
+}
+
+/* MODAL */
+
+.modal-backdrop {
+  position: fixed;
+
+  inset: 0;
+
+  background: rgba(0,0,0,0.7);
+
+  backdrop-filter: blur(8px);
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  z-index: 200;
+}
+
+.modal {
+  width: min(95%, 500px);
+
+  background: #111827;
+
+  border-radius: 24px;
+
+  padding: 30px;
+
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+.modal-close {
+  width: 35px;
+
+  height: 35px;
+
+  border-radius: 50%;
+
+  border: none;
+
+  background: rgba(255,255,255,0.1);
+
+  color: white;
+
+  margin-bottom: 15px;
+}
+
+.modal-img {
+  width: 150px;
+
+  height: 150px;
+
+  object-fit: contain;
+}
+
+/* TIPOS */
+
+.type-fire { background: #ff6b35; }
+.type-water { background: #2196f3; }
+.type-grass { background: #4caf50; }
+.type-electric { background: #ffc107; color: #222; }
+.type-ice { background: #00bcd4; }
+.type-fighting { background: #f44336; }
+.type-poison { background: #9c27b0; }
+.type-ground { background: #795548; }
+.type-flying { background: #5c8fcb; }
+.type-psychic { background: #e91e63; }
+.type-bug { background: #8bc34a; }
+.type-rock { background: #9e9e9e; }
+.type-ghost { background: #673ab7; }
+.type-dragon { background: #3f51b5; }
+.type-dark { background: #455a64; }
+.type-steel { background: #607d8b; }
+.type-fairy { background: #e91e8c; }
+.type-normal { background: #757575; }
+
+@media (max-width: 600px) {
+
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .flip-card {
+    height: 300px;
+  }
+}
